@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { status: httpStatus } = require("http-status");
+const httpStatus = require("http-status");
 const _ = require("lodash");
 const { isCelebrateError } = require("celebrate");
 const APIError = require("../utils/APIErrors");

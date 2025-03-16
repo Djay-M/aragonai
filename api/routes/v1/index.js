@@ -1,12 +1,12 @@
 const express = require("express");
-const V1Routes = require("./v1");
+const UserRoute = require("./users.route");
 const router = express.Router();
 
 // Health Check API
 router.get("/status", function (req, res, next) {
-  return res.json({ code: 200, message: "Server UP AND Running, OK!" });
+  return res.json({ code: 200, message: "Server Running, OK!" });
 });
 
-router.use("/api/v1", V1Routes);
+router.use("/users", UserRoute);
 
 module.exports = router;

@@ -5,7 +5,9 @@ require("dotenv-safe").config({
 });
 
 module.exports = {
-  env: process.env.NODE_ENV || "dev",
+  env: process.env.ENV || "dev",
   port: process.env.PORT,
+  jwtAccessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
+  jwtRefreshTokenSecret: process.env.REFRESH_TOKEN_SECRET,
   taskStatus: ["To Do", "Doing", "Done"],
 };

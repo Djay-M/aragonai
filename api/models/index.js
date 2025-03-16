@@ -5,7 +5,7 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const process = require("process");
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "development";
+const env = process.env.ENV || "development";
 const config = require(__dirname + "/../config/config")[env];
 const db = {};
 
@@ -20,6 +20,8 @@ if (config.use_env_variable) {
     config
   );
 }
+
+console.log("DB Connections Successfull");
 
 fs.readdirSync(__dirname)
   .filter((file) => {
