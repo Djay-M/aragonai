@@ -21,6 +21,7 @@ module.exports = {
       },
       description: {
         type: Sequelize.STRING,
+        allowNull: true,
       },
       archived: {
         type: Sequelize.BOOLEAN,
@@ -36,6 +37,36 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
+
+    await queryInterface.bulkInsert("Boards", [
+      {
+        id: 1,
+        title: "Platform Launch",
+        description: "First Board Calling It 'Platform Launch'",
+        createdBy: 1,
+        archived: false,
+        createdAt: "2025-03-16T13:34:56.577Z",
+        updatedAt: "2025-03-16T13:34:56.577Z",
+      },
+      {
+        id: 2,
+        title: "Marketing Plan",
+        description: "Board of marketing tasks",
+        createdBy: 1,
+        archived: false,
+        createdAt: "2025-03-16T13:34:56.577Z",
+        updatedAt: "2025-03-16T13:34:56.577Z",
+      },
+      {
+        id: 3,
+        title: "Roadmap",
+        description: "Board for tracking the status of tasks",
+        createdBy: 1,
+        archived: false,
+        createdAt: "2025-03-16T13:34:56.577Z",
+        updatedAt: "2025-03-16T13:34:56.577Z",
+      },
+    ]);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable("Boards");

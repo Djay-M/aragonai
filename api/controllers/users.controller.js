@@ -133,7 +133,6 @@ exports.deleteUser = async (req, res, next) => {
     return res.json({
       status: 200,
       message: "Users Deleted successfully",
-      data: response,
     });
   } catch (error) {
     next(error);
