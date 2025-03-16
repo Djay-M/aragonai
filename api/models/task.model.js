@@ -1,3 +1,5 @@
+const { taskStatus } = require("../config/vars");
+
 module.exports = (sequelize, DataTypes) => {
   const Tasks = sequelize.define(
     "Tasks",
@@ -13,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       description: {
         type: DataTypes.STRING,
+        allowNull: true,
       },
       createdBy: {
         type: DataTypes.INTEGER,
@@ -21,8 +24,17 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
+      boardId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Boards",
+          key: "id",
+        },
+      },
       status: {
         type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: taskStatus[0],
       },
       archived: {
         allowNull: true,
@@ -50,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "createdBy",
     });
     Tasks.belongsTo(models.Boards, {
-      foreignKey: "userId",
+      foreignKey: "boardId",
     });
   };
   return Tasks;

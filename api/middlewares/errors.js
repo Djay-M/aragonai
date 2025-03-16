@@ -13,7 +13,7 @@ exports.handler = (err, req, res, next) => {
     code: err?.status,
     message: err?.message || httpStatus[err.status || 500],
     errors: err?.errors,
-    stack: err?.stack,
+    stack: err?.status == 404 ? undefined : err?.stack,
   };
 
   res.status(400);
