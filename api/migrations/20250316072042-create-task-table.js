@@ -54,11 +54,11 @@ module.exports = {
 
     await queryInterface.bulkInsert("Tasks", [
       {
-        id: 1,
+        id: 9999999,
         title: "Build UI for onboarding flow",
         description: "First tasks for board 'Platform Launch'",
-        createdBy: 1,
-        boardId: 1,
+        createdBy: 9999999,
+        boardId: 9999991,
         status: "To Do",
         archived: false,
         createdAt: "2025-03-16T14:22:21.207Z",
